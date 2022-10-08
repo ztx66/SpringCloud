@@ -19,7 +19,8 @@
 
     <modules>
         <module>user</module>
-        <module>eureka</module>  <!-- 注册中心 -->
+        <module>eureka</module>  <!-- 注册中心 Eureka服务端-->
+        <module>eurekaClient</module> <!-- Eureka客户端 -->
     </modules>
     <!-- 建立父子 Module 依赖 end-->
 
