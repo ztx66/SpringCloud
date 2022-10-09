@@ -23,7 +23,7 @@ public class NacosController {
     })
      public String invoke() throws InterruptedException{
         //模拟服务超时
-        //Thread.sleep(10000);
+        Thread.sleep(10000);
          return LocalTime.now()+":invoke";
      }
 

@@ -22,6 +22,7 @@
         <module>eureka</module>  <!-- 注册中心 Eureka服务端-->
         <module>eurekaClient</module> <!-- Eureka客户端 -->
         <module>nacos</module> <!-- 注册中心 Nacos服务端 -->
+        <module>nacosclient</module>
     </modules>
     <!-- 建立父子 Module 依赖 end-->
 
