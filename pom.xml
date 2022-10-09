@@ -21,6 +21,7 @@
         <module>user</module>
         <module>eureka</module>  <!-- 注册中心 Eureka服务端-->
         <module>eurekaClient</module> <!-- Eureka客户端 -->
+        <module>nacos</module> <!-- 注册中心 Nacos服务端 -->
     </modules>
     <!-- 建立父子 Module 依赖 end-->
 
@@ -43,17 +44,58 @@
         </dependency>
 
         <!-- eureka服务端的依赖-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
             <version>2.2.6.RELEASE</version>
-        </dependency>
+        </dependency>-->
 
         <!--实现Eureka认证,保证Eureka的安全性-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>-->
+
+        <!-- Nacos依赖 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>2.2.6.RELEASE</version>
+            <!--openfeign里面有复载均衡，所以这里必须注释掉，不然会冲突-->
+            <!--同时添加openfeign依赖及配套的loadbalancer，同时openfeign内置了负载均衡的ribbon，所以还需要把nacos中的ribbon注释掉-->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <version>2.2.6.RELEASE</version>
+        </dependency>
+
+        <!--openfeign依赖 Feign的注解定义接口，调用这个接口，就可以调用服务注册中心的服务-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <!--openfiegn使用时需要搭配loadbalancer负载均衡-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-loadbalancer</artifactId>
+        </dependency>
+
+        <!--hystrix依赖 spring-cloud-starter-hystrix已经被废弃了-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>2.2.6.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
