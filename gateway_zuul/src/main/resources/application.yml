@@ -1,0 +1,15 @@
+server:
+  port: 8008
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:80
+
+zuul:
+  routes:
+    auth:
+      path: /auth/**
+      serviceId: nacos-provider
