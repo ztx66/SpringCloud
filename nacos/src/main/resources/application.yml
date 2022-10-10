@@ -6,4 +6,7 @@ spring:
   cloud:
     # nacos 服务地址
     nacos:
-      server-addr: 127.0.0.1:8848
+      # Nacos单机模式下使用Nacos的服务ip 端口
+      #server-addr: 127.0.0.1:8848
+      # Nacos集群模式 127.0.0.1:80就是Nginx的地址，ngnix会将他们代理到Nacos中
+      server-addr: 127.0.0.1:80
