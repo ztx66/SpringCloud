@@ -1,0 +1,12 @@
+
+spring:
+  application:
+    name: spring_security
+  thymeleaf:
+    #模板的模式，支持 HTML, XML TEXT JAVASCRIPT
+    mode: HTML5
+    #开发配置为false,避免修改模板还要重启服务器
+    cache: false
+server:
+  port: 8881
+

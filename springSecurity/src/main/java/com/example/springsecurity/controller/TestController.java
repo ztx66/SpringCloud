@@ -18,4 +18,35 @@ public class TestController {
         return "hello";
     }
 
+    @RequestMapping("/admin/2")
+    public String adminPage() {
+          return "admin/2";
+    }
+
+    @RequestMapping("/role1/1")
+    public String role1Page(){
+         return "role1/1";
+    }
+
+    @RequestMapping("login")
+    public String login(){
+        return "login";
+    }
+
+    @RequestMapping("/")
+    public String test1(){
+        return "login";
+    }
+
+    @RequestMapping("/index")
+    public String index(){
+        System.out.println("logging...success");
+        return "index";
+    }
+
+    @RequestMapping("/Err")
+    public String err(){
+        System.out.println("logging...err");
+        return "Err";
+    }
 }
